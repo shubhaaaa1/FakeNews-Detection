@@ -15,8 +15,8 @@ def clean_text(text):
     return ' '.join(text)
 
 # Load saved model and vectorizer
-model = pickle.load(open("C:/Users/shubh/Downloads/Trainednewsmodel.sav", 'rb'))
-vectorizer = pickle.load(open("C:/Users/shubh/Downloads/vectorizer.pkl", 'rb'))
+model = pickle.load(open("model.pkl", 'rb'))
+vectorizer = pickle.load(open("vectorizer.pkl", 'rb'))
 
 st.title("📰 Fake News Detector")
 
@@ -26,8 +26,8 @@ content = st.text_area("Enter News Content")
 if st.button("Predict"):
     combined = title + " " + content
     cleaned = clean_text(combined)
-    vect_text = vectorizer.transform([cleaned])  # ✅ Correctly transformed
-    pred = model.predict(vect_text)              # ✅ Correctly used
+    vect_text = vectorizer.transform([cleaned])  
+    pred = model.predict(vect_text)           
 
     if pred[0] == 1:
         st.success("✅ REAL News")
