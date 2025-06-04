@@ -44,8 +44,9 @@ def clean_text(text):
 
 # --- User Input ---
 with st.container():
-    title = st.text_input("📝 Enter News Title")
-    content = st.text_area("📰 Enter News Content")
+   title = st.text_input("📝 Enter News Title", placeholder="e.g. India wins T20 World Cup 2024")
+   content = st.text_area("📰 Enter News Content", placeholder="e.g. In a stunning finale, India lifted...")
+
 
 # --- Predict Button ---
 if st.button("🔍 Predict"):
