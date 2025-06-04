@@ -54,12 +54,16 @@ if st.button("🔍 Predict"):
         cleaned = clean_text(combined)
         vect_text = vectorizer.transform([cleaned])
         pred = model.predict(vect_text)
+        proba = model.predict_proba(vect_text)[0]
+        confidence = max(proba) * 100
+        st.info(f"🧠 Confidence: {confidence:.2f}%")
+
 
         if pred[0] == 1:
             st.success("✅ This looks like **REAL** news!")
         else:
             st.error("🚫 This appears to be **FAKE** news.")
-
+     
 # --- Footer ---
 st.markdown("---")
 st.markdown("<p style='text-align: center; color: gray;'>Made with ❤️ by Shubham</p>", unsafe_allow_html=True)
