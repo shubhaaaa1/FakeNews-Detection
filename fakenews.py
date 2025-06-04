@@ -20,9 +20,6 @@ st.markdown("""
         padding: 20px;
         border-radius: 10px;
     }
-    .stTextInput > div > div > input {
-        background-color: #ffffff;
-    }
     </style>
 """, unsafe_allow_html=True)
 
